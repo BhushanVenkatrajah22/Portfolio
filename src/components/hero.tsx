@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Mail, Briefcase, FileText } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaResearchgate } from 'react-icons/fa';
@@ -14,6 +15,46 @@ const socials = [
 ];
 
 export default function Hero() {
+  const taglines = [
+    "Creating Innovative AI Applications & Scalable Software Solutions",
+    "Turning Ideas into Intelligent Software & AI-Powered Solutions",
+    "Building myself as an AI Engineer & Software Developer"
+  ];
+
+  const [currentText, setCurrentText] = useState('');
+  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const currentTagline = taglines[taglineIndex];
+
+    if (!isDeleting) {
+      if (currentText.length < currentTagline.length) {
+        timer = setTimeout(() => {
+          setCurrentText(currentTagline.slice(0, currentText.length + 1));
+        }, 50 + Math.random() * 40); // Natural typing speed
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2500); // Pause on fully typed word
+      }
+    } else {
+      if (currentText.length > 0) {
+        timer = setTimeout(() => {
+          setCurrentText(currentText.slice(0, currentText.length - 1));
+        }, 20); // Faster deleting speed
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setTaglineIndex((prev) => (prev + 1) % taglines.length);
+        }, 500); // Pause before next word
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, taglineIndex]);
+
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -67,15 +108,13 @@ export default function Hero() {
             BHUSHAN V
           </motion.h1>
 
-          {/* Role Statement (Darkened for better contrast) */}
-          <motion.h2
-            className="text-lg sm:text-2xl md:text-3xl font-space font-semibold text-slate-900 dark:text-slate-100 mb-4 tracking-tight"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            AI Engineer & Software Developer
-          </motion.h2>
+          {/* Role Statement with Typewriter Animation (Prevents layout shift with min-height) */}
+          <div className="text-lg sm:text-2xl md:text-3xl font-space font-semibold mb-4 tracking-tight min-h-[3.5rem] sm:min-h-[2.5rem] md:min-h-[2.25rem] flex items-center justify-center lg:justify-start">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400 bg-clip-text text-transparent">
+              {currentText}
+            </span>
+            <span className="typewriter-cursor text-blue-600 dark:text-cyan-400 ml-0.5">&nbsp;</span>
+          </div>
 
           {/* Short Statement (Darkened for better contrast) */}
           <motion.p
