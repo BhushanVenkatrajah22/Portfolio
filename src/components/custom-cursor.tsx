@@ -21,11 +21,14 @@ export default function CustomCursor() {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouchDevice) return;
 
-    setIsVisible(true);
-
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+    };
+
+    const handleInitialMove = () => {
+      setIsVisible(true);
+      window.removeEventListener('mousemove', handleInitialMove);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -45,10 +48,12 @@ export default function CustomCursor() {
     };
 
     window.addEventListener('mousemove', moveCursor);
+    window.addEventListener('mousemove', handleInitialMove);
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener('mousemove', handleInitialMove);
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);

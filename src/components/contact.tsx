@@ -26,14 +26,21 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate submission
+
+    const emailTo = 'bhushanvenkatrajah@gmail.com';
+    const subject = encodeURIComponent(`Portfolio Message from ${formState.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
+    );
+
+    window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
       setFormState({ name: '', email: '', message: '' });
       setTimeout(() => setSubmitted(false), 3000);
-    }, 1500);
+    }, 1000);
   };
 
   return (
