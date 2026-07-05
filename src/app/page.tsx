@@ -9,10 +9,11 @@ import Achievements from "@/components/achievements";
 import Certifications from "@/components/certifications";
 import Resume from "@/components/resume";
 import Contact from "@/components/contact";
+import AdditionalInfo from "@/components/additional-info";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-12 sm:gap-20 md:gap-24 w-full">
+    <div className="flex flex-col w-full">
       {/* Hero Section */}
       <Hero />
 
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* Certifications Section */}
       <Certifications />
+
+      {/* Additional Details Section */}
+      <AdditionalInfo />
 
       {/* Resume Section */}
       <Resume />

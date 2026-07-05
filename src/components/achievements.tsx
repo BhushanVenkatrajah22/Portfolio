@@ -9,7 +9,6 @@ const achievements = [
     competition: 'National Level Paper Presentation',
     org: 'PSG Institute of Technology',
     icon: Trophy,
-    color: 'from-amber-500 to-yellow-300',
     description: 'Awarded for presenting pioneering research in automated control systems and bio-sustainable innovations, evaluated by industry researchers.'
   },
   {
@@ -17,7 +16,6 @@ const achievements = [
     competition: 'AI Agent Hackathon',
     org: 'Swafinix Technologies',
     icon: Star,
-    color: 'from-[#0066ff] to-[#00f2fe]',
     description: 'Ranked in the top 10 globally among hundreds of teams, designing autonomous multi-agent planning frameworks running edge API scripts.'
   },
   {
@@ -25,7 +23,6 @@ const achievements = [
     competition: 'SNS BootCamp Challenge',
     org: 'SNS College of Engineering',
     icon: ShieldCheck,
-    color: 'from-purple-500 to-indigo-400',
     description: 'Secured the first position for conceptualizing and developing an IoT-integrated mobile prototype for elderly health management.'
   },
   {
@@ -33,27 +30,23 @@ const achievements = [
     competition: 'MobilityX 2.0',
     org: 'Future Transport Initiative',
     icon: Milestone,
-    color: 'from-teal-400 to-emerald-300',
     description: 'Shortlisted among key innovators for building battery telemetry and routing optimization blueprints for next-generation electric vehicles.'
   },
 ];
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative py-24 px-6 sm:px-12 md:px-24 border-t border-white/5 overflow-hidden">
-      {/* Background glow bottom-right */}
-      <div className="absolute bottom-[10%] -right-[10%] w-[400px] h-[400px] rounded-full bg-neon-purple/5 filter blur-[100px] pointer-events-none" />
-
+    <section id="achievements" className="relative py-12 sm:py-16 px-6 sm:px-12 md:px-24 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col gap-3 mb-16 items-center lg:items-start text-center lg:text-left">
-          <span className="text-xs font-semibold font-space tracking-[0.3em] text-neon-cyan uppercase">
+        <div className="flex flex-col gap-3 mb-8 items-center lg:items-start text-center lg:text-left">
+          <span className="text-xs font-semibold font-space tracking-[0.3em] text-slate-400 uppercase">
             Milestones
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-slate-900">
             HONORS & AWARDS
           </h2>
-          <div className="w-12 h-[2px] bg-gradient-to-r from-electric-blue to-neon-cyan mt-1" />
+          <div className="w-12 h-[1px] bg-slate-300 mt-1" />
         </div>
 
         {/* Achievements Grid */}
@@ -63,33 +56,33 @@ export default function Achievements() {
             return (
               <motion.div
                 key={idx}
-                className="p-6 rounded-3xl border border-white/5 bg-white/[0.01] glass-panel glow-card flex items-start gap-5 interactive-card group hover:-translate-y-1 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
+                className="p-6 rounded-2xl border border-slate-200 bg-white glass-panel flex items-start gap-5 shadow-sm shadow-slate-100"
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
               >
-                {/* Glowing trophy node */}
-                <div className={`p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-neutral-400 group-hover:border-neon-cyan/40 transition-colors duration-300`}>
-                  <AchIcon className="w-6 h-6 text-neon-cyan group-hover:animate-bounce" />
+                {/* Trophy node */}
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-blue-600 shadow-sm">
+                  <AchIcon className="w-5 h-5" />
                 </div>
 
-                {/* Details info */}
+                {/* Details */}
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span className="text-base sm:text-lg font-bold font-space text-white">
+                    <span className="text-base sm:text-lg font-bold font-space text-slate-900">
                       {ach.title}
                     </span>
-                    <span className="text-[10px] text-neutral-500 font-space tracking-wider uppercase">
+                    <span className="text-[10px] text-slate-400 font-space tracking-wider uppercase">
                       • {ach.org}
                     </span>
                   </div>
                   
-                  <span className="text-xs font-semibold font-space tracking-wider uppercase text-neon-cyan/80">
+                  <span className="text-xs font-semibold font-space tracking-wider uppercase text-indigo-600">
                     {ach.competition}
                   </span>
 
-                  <p className="text-neutral-400 font-sans text-xs sm:text-sm leading-relaxed mt-1">
+                  <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed mt-1">
                     {ach.description}
                   </p>
                 </div>

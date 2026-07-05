@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BookOpen, Award, FileText, ChevronRight } from 'lucide-react';
+import { BookOpen, Award, ChevronRight } from 'lucide-react';
 
 const researchItems = [
   {
@@ -29,60 +29,57 @@ const researchItems = [
 
 export default function Research() {
   return (
-    <section id="research" className="relative py-24 px-6 sm:px-12 md:px-24 border-t border-white/5 overflow-hidden">
-      {/* Background neon lighting accent */}
-      <div className="absolute top-[40%] -left-[10%] w-[450px] h-[450px] rounded-full bg-electric-blue/5 filter blur-[100px] pointer-events-none" />
-
+    <section id="research" className="relative py-12 sm:py-16 px-6 sm:px-12 md:px-24 border-t border-slate-100">
       <div className="max-w-5xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col gap-3 mb-16 items-center text-center">
-          <span className="text-xs font-semibold font-space tracking-[0.3em] text-neon-cyan uppercase">
+        <div className="flex flex-col gap-3 mb-8 items-center text-center">
+          <span className="text-xs font-semibold font-space tracking-[0.3em] text-slate-400 uppercase">
             Scholarly
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-slate-900">
             RESEARCH & PATENTS
           </h2>
-          <div className="w-12 h-[2px] bg-gradient-to-r from-electric-blue to-neon-cyan mt-1" />
+          <div className="w-12 h-[1px] bg-slate-300 mt-1" />
         </div>
 
         {/* Research Items Grid */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           {researchItems.map((item, idx) => (
             <motion.div
               key={idx}
-              className="p-6 sm:p-8 rounded-3xl border border-white/5 bg-white/[0.01] glass-panel glow-card flex flex-col md:flex-row gap-6 items-start justify-between interactive-card group"
-              initial={{ opacity: 0, y: 35 }}
+              className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white glass-panel flex flex-col md:flex-row gap-6 items-start justify-between shadow-sm shadow-slate-100"
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
             >
               {/* Left Column: Details */}
               <div className="flex-grow flex flex-col gap-4 max-w-3xl">
                 {/* Badge Type */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   {item.type.includes('Patent') ? (
-                    <span className="px-3 py-1 text-[10px] font-space font-bold tracking-wider text-neon-purple bg-neon-purple/5 border border-neon-purple/20 rounded-full flex items-center gap-1.5 uppercase">
-                      <Award className="w-3.5 h-3.5 text-neon-purple" />
+                    <span className="px-3 py-1 text-[10px] font-space font-bold tracking-wider text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-md flex items-center gap-1.5 uppercase">
+                      <Award className="w-3.5 h-3.5 text-indigo-500" />
                       {item.type}
                     </span>
                   ) : (
-                    <span className="px-3 py-1 text-[10px] font-space font-bold tracking-wider text-neon-cyan bg-neon-cyan/5 border border-neon-cyan/20 rounded-full flex items-center gap-1.5 uppercase">
-                      <BookOpen className="w-3.5 h-3.5 text-neon-cyan" />
+                    <span className="px-3 py-1 text-[10px] font-space font-bold tracking-wider text-blue-600 bg-blue-50 border border-blue-100 rounded-md flex items-center gap-1.5 uppercase">
+                      <BookOpen className="w-3.5 h-3.5 text-blue-500" />
                       {item.type}
                     </span>
                   )}
-                  <span className="text-[10px] font-space text-neutral-500 uppercase tracking-widest">
+                  <span className="text-[10px] font-space text-slate-400 uppercase tracking-widest">
                     {item.publisher}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold font-space text-white group-hover:text-neon-cyan transition-colors duration-300 tracking-tight leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold font-space text-slate-900 hover:text-slate-700 transition-colors duration-200 tracking-tight leading-snug">
                   {item.title}
                 </h3>
 
                 {/* Summary */}
-                <p className="text-neutral-400 font-sans text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed">
                   {item.summary}
                 </p>
 
@@ -91,7 +88,7 @@ export default function Research() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-0.5 text-[9px] font-space tracking-wider uppercase text-neutral-500 bg-white/[0.02] border border-white/5 rounded-md"
+                      className="px-2.5 py-0.5 text-[9px] font-space tracking-wider uppercase text-slate-500 bg-slate-100/70 border border-slate-200 rounded-md"
                     >
                       {tag}
                     </span>
@@ -99,13 +96,13 @@ export default function Research() {
                 </div>
               </div>
 
-              {/* Right Column: Mini action link */}
+              {/* Right Column: Action link */}
               <div className="flex items-center justify-end w-full md:w-auto mt-4 md:mt-0">
                 <button
-                  className="p-3 rounded-full bg-white/[0.02] border border-white/5 group-hover:border-neon-cyan/40 text-neutral-500 group-hover:text-neon-cyan cursor-none transition-all duration-300 flex items-center justify-center"
+                  className="p-3 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-400 hover:text-slate-700 transition-all duration-200 flex items-center justify-center shadow-sm"
                   aria-label="View publisher resource"
                 >
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </motion.div>

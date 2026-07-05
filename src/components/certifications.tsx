@@ -5,47 +5,68 @@ import { Award, FileCheck, CheckCircle } from 'lucide-react';
 
 const certifications = [
   {
-    name: 'Neural Networks & Deep Learning',
-    issuer: 'DeepLearning.AI',
-    date: '2024',
-    credentialId: 'DL-9302847A',
+    name: 'Design Thinking Course Certification',
+    issuer: 'AICTE',
+    date: 'Verified',
+    credentialId: 'ACT-DT-99',
   },
   {
-    name: 'Advanced Software Engineering',
-    issuer: 'HackerRank',
-    date: '2023',
-    credentialId: 'HR-SE-77301B',
+    name: 'JAVA and C Language Certifications',
+    issuer: 'Stanford University',
+    date: 'Verified',
+    credentialId: 'SU-JC-21',
   },
   {
-    name: 'Using Python for Research',
-    issuer: 'Harvard University (edX)',
-    date: '2024',
-    credentialId: 'HARV-EDX-9930',
+    name: 'Leadership Certification',
+    issuer: 'LearnTube',
+    date: 'Verified',
+    credentialId: 'LT-LC-77',
   },
   {
-    name: 'Internet of Things (IoT) Fundamentals',
-    issuer: 'Cisco Networking Academy',
-    date: '2023',
-    credentialId: 'CSCO-IoT-309',
+    name: 'Python 101 in Data Science',
+    issuer: 'IBM',
+    date: 'Verified',
+    credentialId: 'IBM-DS-101',
+  },
+  {
+    name: 'SQL Analytics and AI/Bi for Data Analysts',
+    issuer: 'Databricks',
+    date: 'Verified',
+    credentialId: 'DB-SQL-AI',
+  },
+  {
+    name: 'Python Certification',
+    issuer: 'ByteXL',
+    date: 'Verified',
+    credentialId: 'BX-PY-56',
+  },
+  {
+    name: 'DSA Certification',
+    issuer: 'ByteXL',
+    date: 'Verified',
+    credentialId: 'BX-DS-45',
+  },
+  {
+    name: '20+ AI Certification',
+    issuer: 'Analytics Vidhya',
+    date: 'Verified',
+    credentialId: 'AV-AI-20',
   },
 ];
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="relative py-24 px-6 sm:px-12 md:px-24 border-t border-white/5 overflow-hidden">
-      {/* Background soft glow */}
-      <div className="absolute top-[20%] -right-[15%] w-[400px] h-[400px] rounded-full bg-neon-cyan/5 filter blur-[100px] pointer-events-none" />
-
+    <section id="certifications" className="relative py-12 sm:py-16 px-6 sm:px-12 md:px-24 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col gap-3 mb-16 items-center lg:items-start text-center lg:text-left">
-          <span className="text-xs font-semibold font-space tracking-[0.3em] text-neon-cyan uppercase">
+        <div className="flex flex-col gap-3 mb-8 items-center lg:items-start text-center lg:text-left">
+          <span className="text-xs font-semibold font-space tracking-[0.3em] text-slate-400 uppercase">
             Credentials
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-slate-900">
             CERTIFICATIONS
           </h2>
-          <div className="w-12 h-[2px] bg-gradient-to-r from-electric-blue to-neon-cyan mt-1" />
+          <div className="w-12 h-[1px] bg-slate-300 mt-1" />
         </div>
 
         {/* Certifications Grid */}
@@ -53,41 +74,40 @@ export default function Certifications() {
           {certifications.map((cert, idx) => (
             <motion.div
               key={idx}
-              className="p-6 rounded-3xl border border-white/5 bg-white/[0.01] glass-panel glow-card flex flex-col justify-between interactive-card group h-[220px]"
-              initial={{ opacity: 0, y: 25 }}
+              className="p-6 rounded-2xl border border-slate-200 bg-white glass-panel flex flex-col justify-between h-[210px] shadow-sm shadow-slate-100"
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -4 }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
             >
               {/* Badge Icon */}
               <div className="flex justify-between items-start">
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-neutral-400 group-hover:text-neon-cyan group-hover:border-neon-cyan/35 transition-colors duration-300">
-                  <Award className="w-5 h-5 text-neon-cyan" />
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-blue-600 shadow-sm">
+                  <Award className="w-4 h-4" />
                 </div>
-                <span className="text-[10px] font-space text-neutral-500 uppercase tracking-widest">
+                <span className="text-[10px] font-space text-slate-400 uppercase tracking-widest">
                   {cert.date}
                 </span>
               </div>
 
               {/* Certificate Details */}
               <div className="flex flex-col gap-1 mt-4">
-                <h3 className="text-sm font-bold font-space text-white tracking-tight leading-snug group-hover:text-neon-cyan transition-colors">
+                <h3 className="text-sm font-bold font-space text-slate-900 tracking-tight leading-snug">
                   {cert.name}
                 </h3>
-                <span className="text-xs text-neutral-500 font-sans">
+                <span className="text-xs text-slate-500 font-sans">
                   {cert.issuer}
                 </span>
               </div>
 
               {/* Footer Credentials */}
-              <div className="border-t border-white/5 pt-3 mt-4 flex items-center justify-between text-[9px] font-space tracking-wider uppercase text-neutral-600">
+              <div className="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between text-[9px] font-space tracking-wider uppercase text-slate-500">
                 <span className="flex items-center gap-1">
-                  <FileCheck className="w-3.5 h-3.5 text-neutral-600" />
+                  <FileCheck className="w-3.5 h-3.5 text-slate-400" />
                   ID: {cert.credentialId}
                 </span>
-                <span className="flex items-center gap-1 text-emerald-500/80">
-                  <CheckCircle className="w-3 h-3 text-emerald-500/80" />
+                <span className="flex items-center gap-1 text-emerald-600 font-semibold">
+                  <CheckCircle className="w-3 h-3 text-emerald-500" />
                   Verified
                 </span>
               </div>

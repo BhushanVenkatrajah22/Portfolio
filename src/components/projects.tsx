@@ -38,7 +38,7 @@ const projects: Project[] = [
       'Optimal smart charging schedules balancing electricity grid tariffs.'
     ],
     futureScope: 'Integrating as an embedded app inside Android Automotive OS (AAOS) for zero-latency vehicle console integration.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: Cpu,
   },
@@ -56,7 +56,7 @@ const projects: Project[] = [
       'Emergency remote power cutoff utility triggered over WebSockets.'
     ],
     futureScope: 'Deploying lightweight Edge AI classification networks directly on the micro-controller for offline failure categorization.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: Activity,
   },
@@ -74,7 +74,7 @@ const projects: Project[] = [
       'Automated visual diagnostic maps checking thermal limits.'
     ],
     futureScope: 'Deploying closed-loop turbine generator metrics to automate grid-tied energy flow reporting.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: Lightbulb,
   },
@@ -92,7 +92,7 @@ const projects: Project[] = [
       'Automated SMS/Email notification alerts triggered by anomalous patterns.'
     ],
     futureScope: 'Integrating temporal Convolutional Networks (TCN) to track historical degradation trends in multi-axis setups.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: ShieldAlert,
   },
@@ -110,7 +110,7 @@ const projects: Project[] = [
       'Integrated QR code booking scanners.'
     ],
     futureScope: 'Adding camera feeds processing via edge TPU accelerators to support autonomous self-parking guidance mapping.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: Rocket,
   },
@@ -128,7 +128,7 @@ const projects: Project[] = [
       'Interactive vector maps previewing schedules.'
     ],
     futureScope: 'Deploying direct payment and booking agents integrating open APIs of hoteliers.',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/BhushanVenkatrajah22',
     demoUrl: 'https://demo.com',
     imageIcon: ListFilter,
   },
@@ -138,20 +138,17 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative py-24 px-6 sm:px-12 md:px-24 border-t border-white/5 overflow-hidden">
-      {/* Glow mesh top-left */}
-      <div className="absolute top-[20%] -left-[10%] w-[400px] h-[400px] rounded-full bg-electric-blue/10 filter blur-[100px] pointer-events-none" />
-
+    <section id="projects" className="relative py-12 sm:py-16 px-6 sm:px-12 md:px-24 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col gap-3 mb-16 items-center lg:items-start text-center lg:text-left">
-          <span className="text-xs font-semibold font-space tracking-[0.3em] text-neon-cyan uppercase">
+        <div className="flex flex-col gap-3 mb-8 items-center lg:items-start text-center lg:text-left">
+          <span className="text-xs font-semibold font-space tracking-[0.3em] text-slate-400 uppercase">
             Engineering
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-slate-900">
             SELECTED PROJECTS
           </h2>
-          <div className="w-12 h-[2px] bg-gradient-to-r from-electric-blue to-neon-cyan mt-1" />
+          <div className="w-12 h-[1px] bg-slate-300 mt-1" />
         </div>
 
         {/* Projects Grid */}
@@ -161,35 +158,34 @@ export default function Projects() {
             return (
               <motion.div
                 key={project.id}
-                className="relative rounded-2xl border border-white/5 bg-white/[0.01] glass-panel glow-card flex flex-col justify-between overflow-hidden interactive-card group p-6 h-[320px] transition-all duration-300"
-                initial={{ opacity: 0, y: 40 }}
+                className="relative rounded-2xl border border-slate-200 bg-white glass-panel flex flex-col justify-between overflow-hidden p-6 h-[310px] shadow-sm shadow-slate-100"
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                whileHover={{ y: -6 }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
               >
                 {/* Upper container */}
                 <div className="flex flex-col gap-4">
-                  {/* Decorative glowing icon */}
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-neutral-400 group-hover:text-neon-cyan group-hover:border-neon-cyan/40 transition-colors duration-300">
-                    <ProjectIcon className="w-6 h-6" />
+                  {/* Icon */}
+                  <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500">
+                    <ProjectIcon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="text-xl font-bold font-space text-white tracking-tight">
+                  <h3 className="text-xl font-bold font-space text-slate-900 tracking-tight">
                     {project.title}
                   </h3>
                   
-                  <p className="text-neutral-400 text-xs sm:text-sm font-sans line-clamp-3 leading-relaxed">
+                  <p className="text-slate-600 text-xs sm:text-sm font-sans line-clamp-3 leading-relaxed">
                     {project.shortDesc}
                   </p>
                 </div>
 
                 {/* Footer interactive bar */}
-                <div className="flex items-center justify-between mt-6 border-t border-white/5 pt-4">
+                <div className="flex items-center justify-between mt-6 border-t border-slate-100 pt-4">
                   {/* Tech stack inline */}
                   <div className="flex items-center gap-1.5 overflow-hidden">
                     {project.tech.slice(0, 3).map((t) => (
-                      <span key={t} className="text-[10px] font-space font-medium tracking-wider uppercase text-neutral-500">
+                      <span key={t} className="text-[10px] font-space font-semibold tracking-wider uppercase text-slate-400">
                         {t}
                       </span>
                     ))}
@@ -198,10 +194,10 @@ export default function Projects() {
                   {/* Deep dive CTA */}
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="p-2.5 rounded-full bg-white/[0.03] border border-white/5 hover:border-neon-cyan/50 text-neutral-400 hover:text-neon-cyan transition-colors cursor-none flex items-center justify-center"
+                    className="px-4 py-2 text-xs font-semibold font-space tracking-wide uppercase rounded-md bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-700 hover:text-slate-900 transition-all duration-200 shadow-sm"
                     aria-label={`View details of ${project.title}`}
                   >
-                    <Eye className="w-4 h-4" />
+                    Details
                   </button>
                 </div>
               </motion.div>
@@ -210,13 +206,13 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Futuristic Deep Dive Modal Overlay */}
+      {/* Deep Dive Modal Overlay */}
       <AnimatePresence>
         {selectedProject && (
           <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6 md:p-10">
             {/* Modal backdrop */}
             <motion.div
-              className="absolute inset-0 bg-black/85 backdrop-blur-xl"
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -225,51 +221,50 @@ export default function Projects() {
 
             {/* Modal window container */}
             <motion.div
-              className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl border border-white/10 bg-[#070707] glass-panel z-10 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col gap-8 scrollbar-thin"
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-2xl border border-slate-200 bg-white z-10 p-6 sm:p-8 md:p-10 shadow-2xl shadow-slate-200/50 flex flex-col gap-8 scrollbar-thin"
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 30 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               {/* Close trigger */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/[0.03] border border-white/5 hover:border-white/15 text-neutral-400 hover:text-white transition-colors cursor-none flex items-center justify-center z-20"
+                className="absolute top-6 right-6 p-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-500 hover:text-slate-800 transition-colors flex items-center justify-center z-20"
                 aria-label="Close details"
               >
                 <X className="w-4 h-4" />
               </button>
 
               {/* Modal Header */}
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-white/5 pb-6">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-space tracking-[0.2em] text-neon-cyan uppercase font-semibold">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-slate-100 pb-6">
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-space tracking-wider text-slate-400 uppercase font-semibold">
                       Tech Deep Dive
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_8px_#00f2fe]" />
                   </div>
-                  <h3 className="text-2xl sm:text-4xl font-extrabold font-space text-white tracking-tight">
+                  <h3 className="text-2xl sm:text-4xl font-extrabold font-space text-slate-900 tracking-tight">
                     {selectedProject.title}
                   </h3>
                 </div>
 
-                {/* Live and GitHub triggers */}
+                {/* Actions */}
                 <div className="flex items-center gap-3 w-full md:w-auto">
                   <a
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-white/5 hover:border-white/15 bg-white/[0.02] text-xs font-space tracking-wider uppercase text-soft-white hover:text-white cursor-none transition-all duration-300"
+                    className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 text-xs font-space tracking-wider uppercase text-slate-600 hover:text-slate-950 transition-all duration-200"
                   >
                     <FaGithub className="w-4 h-4" />
-                    Source Code
+                    Source
                   </a>
                   <a
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-electric-blue to-neon-cyan text-xs font-space tracking-wider uppercase text-white shadow-lg shadow-electric-blue/20 hover:shadow-neon-cyan/20 cursor-none transition-all duration-300"
+                    className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-100 text-xs font-space tracking-wider uppercase transition-all duration-200"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
@@ -283,30 +278,30 @@ export default function Projects() {
                 <div className="md:col-span-8 flex flex-col gap-6">
                   {/* Overview */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       Overview
                     </h4>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {selectedProject.overview}
                     </p>
                   </div>
 
                   {/* Problem */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       The Problem
                     </h4>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {selectedProject.problem}
                     </p>
                   </div>
 
                   {/* Solution */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       The Solution
                     </h4>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {selectedProject.solution}
                     </p>
                   </div>
@@ -314,16 +309,16 @@ export default function Projects() {
 
                 {/* Right block (Technologies, Features, Future Scope) */}
                 <div className="md:col-span-4 flex flex-col gap-6">
-                  {/* Tech stack grid */}
+                  {/* Tech stack */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       Technologies
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {selectedProject.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-3 py-1 text-[10px] font-space font-semibold tracking-wider text-neon-cyan bg-neon-cyan/5 border border-neon-cyan/15 rounded-md"
+                          className="px-2.5 py-1 text-[10px] font-space font-semibold tracking-wider text-blue-600 bg-blue-50 border border-blue-100 rounded-md"
                         >
                           {t}
                         </span>
@@ -333,10 +328,10 @@ export default function Projects() {
 
                   {/* Key Features */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       Key Features
                     </h4>
-                    <ul className="flex flex-col gap-2 pl-4 list-disc text-neutral-300 text-xs sm:text-sm">
+                    <ul className="flex flex-col gap-2 pl-4 list-disc text-slate-600 text-xs sm:text-sm">
                       {selectedProject.features.map((feat, index) => (
                         <li key={index} className="leading-relaxed">
                           {feat}
@@ -347,10 +342,10 @@ export default function Projects() {
 
                   {/* Future Scope */}
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-xs font-bold font-space tracking-widest text-neutral-400 uppercase">
+                    <h4 className="text-xs font-bold font-space tracking-widest text-slate-400 uppercase">
                       Future Scope
                     </h4>
-                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       {selectedProject.futureScope}
                     </p>
                   </div>

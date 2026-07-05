@@ -12,6 +12,7 @@ const navLinks = [
   { id: 'experience', name: 'Timeline' },
   { id: 'research', name: 'Research' },
   { id: 'achievements', name: 'Achievements' },
+  { id: 'additional', name: 'Affiliations' },
   { id: 'contact', name: 'Contact' },
 ];
 
@@ -23,10 +24,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Set scrolled state
       setIsScrolled(window.scrollY > 20);
 
-      // Scroll progress percentage
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
         setScrollProgress((window.scrollY / totalHeight) * 100);
@@ -38,10 +37,9 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Set up intersection observer for active sections
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -60% 0px', // Trigger when section is in active viewing area
+      rootMargin: '-30% 0px -60% 0px',
       threshold: 0,
     };
 
@@ -68,7 +66,7 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // height of navbar
+      const yOffset = -80;
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -76,10 +74,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-[3px] bg-neutral-900/30 z-[9999]">
+      {/* Scroll Progress Bar (Cobalt Blue) */}
+      <div className="fixed top-0 left-0 w-full h-[2.5px] bg-slate-200/55 z-[9999]">
         <motion.div
-          className="h-full bg-gradient-to-r from-electric-blue via-neon-cyan to-neon-purple shadow-[0_0_8px_rgba(0,242,254,0.6)]"
+          className="h-full bg-blue-600"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -87,25 +85,25 @@ export default function Navbar() {
       {/* Floating Glass Navbar Wrapper */}
       <div className="fixed top-4 left-0 w-full z-[9990] px-4 sm:px-6 md:px-8">
         <motion.header
-          className={`max-w-7xl mx-auto rounded-full transition-all duration-500 ease-in-out ${
+          className={`max-w-7xl mx-auto rounded-full transition-all duration-300 ease-in-out ${
             isScrolled
-              ? 'glass-panel backdrop-blur-md bg-black/40 py-3 px-6 border-white/5 shadow-2xl'
+              ? 'glass-panel backdrop-blur-md bg-white/75 py-3 px-6 border-slate-200/60 shadow-md shadow-slate-100'
               : 'bg-transparent py-5 px-4 border-transparent'
           }`}
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a 
               href="#hero" 
               onClick={(e) => handleNavClick(e, 'hero')}
-              className="flex items-center gap-2 group cursor-none"
+              className="flex items-center gap-2 group"
             >
-              <span className="text-xl font-bold font-space tracking-wider text-soft-white flex items-center gap-1.5">
+              <span className="text-xl font-bold font-space tracking-wider text-slate-900 flex items-center gap-1.5">
                 BHUSHAN
-                <span className="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-purple transition-colors duration-300" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 group-hover:bg-indigo-600 transition-colors duration-200" />
               </span>
             </a>
 
@@ -116,17 +114,17 @@ export default function Navbar() {
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`relative px-4 py-2 rounded-full transition-colors duration-300 cursor-none ${
+                  className={`relative px-4 py-2 rounded-full transition-colors duration-200 ${
                     activeSection === link.id
-                      ? 'text-neon-cyan'
-                      : 'text-neutral-400 hover:text-soft-white'
+                      ? 'text-blue-600 font-semibold'
+                      : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
                   <span className="relative z-10">{link.name}</span>
                   {activeSection === link.id && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-white/[0.04] border border-white/5 rounded-full z-0"
+                      className="absolute inset-0 bg-slate-100/80 border border-slate-200/50 rounded-full z-0"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -139,17 +137,17 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, 'contact')}
-                className="relative inline-flex items-center justify-center gap-1.5 px-5 py-2 text-xs font-semibold font-space tracking-wide uppercase rounded-full border border-white/10 hover:border-neon-cyan/50 bg-white/[0.02] text-soft-white transition-all duration-300 group hover:shadow-[0_0_15px_rgba(0,242,254,0.2)] cursor-none"
+                className="relative inline-flex items-center justify-center gap-1.5 px-5 py-2 text-xs font-semibold font-space tracking-wide uppercase rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:border-slate-300 shadow-sm transition-all duration-200 group"
               >
                 Hire Me
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 text-slate-400 group-hover:text-slate-700" />
               </a>
             </div>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-neutral-400 hover:text-soft-white focus:outline-none cursor-none"
+              className="lg:hidden p-2 text-slate-500 hover:text-slate-900 focus:outline-none"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -162,29 +160,26 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/95 z-[9980] flex flex-col justify-center px-8 lg:hidden"
+            className="fixed inset-0 bg-white z-[9980] flex flex-col justify-center px-8 lg:hidden"
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'tween', duration: 0.4 }}
+            transition={{ type: 'tween', duration: 0.3 }}
           >
-            {/* Background pattern inside drawer */}
-            <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
-
             <div className="flex flex-col gap-6 font-space text-2xl font-semibold">
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`transition-colors py-2 border-b border-white/5 ${
+                  className={`transition-colors py-2 border-b border-slate-100 ${
                     activeSection === link.id
-                      ? 'text-neon-cyan'
-                      : 'text-neutral-400'
+                      ? 'text-blue-600'
+                      : 'text-slate-500'
                   }`}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
+                  transition={{ delay: idx * 0.04 }}
                 >
                   {link.name}
                 </motion.a>
@@ -193,10 +188,10 @@ export default function Navbar() {
               <motion.a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, 'contact')}
-                className="mt-4 py-3 text-center text-sm font-semibold tracking-wider uppercase rounded-full bg-gradient-to-r from-electric-blue to-neon-cyan text-white shadow-lg shadow-electric-blue/20"
-                initial={{ opacity: 0, y: 20 }}
+                className="mt-4 py-3 text-center text-sm font-semibold tracking-wider uppercase rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-md shadow-blue-100"
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
+                transition={{ delay: navLinks.length * 0.04 }}
               >
                 Hire Me
               </motion.a>

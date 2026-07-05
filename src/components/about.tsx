@@ -1,144 +1,115 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, FileText, Cpu, BatteryCharging, ShieldAlert } from 'lucide-react';
+import { Award, FileText, Cpu, ShieldCheck } from 'lucide-react';
 
 const stats = [
-  { value: '10+', label: 'Projects Completed', icon: Cpu, color: 'from-electric-blue to-neon-cyan' },
-  { value: '3', label: 'Internships Done', icon: Award, color: 'from-neon-cyan to-neon-purple' },
-  { value: '2', label: 'Research Journals', icon: FileText, color: 'from-neon-purple to-electric-blue' },
-  { value: '1', label: 'Patent Published', icon: ShieldAlert, color: 'from-electric-blue to-soft-white' },
+  { value: '10+', label: 'Projects Completed', icon: Cpu },
+  { value: '3', label: 'Internships Done', icon: Award },
+  { value: '2', label: 'Research Journals', icon: FileText },
+  { value: '1', label: 'Patent Published', icon: ShieldCheck },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 px-6 sm:px-12 md:px-24 border-t border-white/5 overflow-hidden">
-      {/* Background radial soft light */}
-      <div className="absolute top-[50%] -left-[10%] w-[450px] h-[450px] rounded-full bg-neon-purple/10 filter blur-[100px] pointer-events-none" />
-
+    <section id="about" className="relative py-12 sm:py-16 px-6 sm:px-12 md:px-24 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col gap-3 mb-16 items-center lg:items-start text-center lg:text-left">
-          <span className="text-xs font-semibold font-space tracking-[0.3em] text-neon-cyan uppercase">
+        <div className="flex flex-col gap-3 mb-8 items-center lg:items-start text-center lg:text-left">
+          <span className="text-xs font-semibold font-space tracking-[0.3em] text-slate-400 uppercase">
             Discovery
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-space tracking-tight text-slate-900">
             ABOUT ME
           </h2>
-          <div className="w-12 h-[2px] bg-gradient-to-r from-electric-blue to-neon-cyan mt-1" />
+          <div className="w-12 h-[1px] bg-slate-300 mt-1" />
         </div>
 
         {/* Core Layout Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Modern Profile Illustration (Futuristic SVG Engine) */}
+          {/* Left Column: Human-made System Schematic (Clean Vector Blueprint) */}
           <motion.div 
             className="lg:col-span-5 flex justify-center order-2 lg:order-1"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="relative w-full max-w-[400px] aspect-square rounded-3xl border border-white/10 glass-panel overflow-hidden p-8 flex items-center justify-center interactive-card group">
-              {/* Inner ambient spotlight */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-electric-blue/5 via-transparent to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <div className="relative w-full max-w-[360px] aspect-square rounded-2xl border border-slate-200 bg-white glass-panel p-6 flex items-center justify-center shadow-sm shadow-slate-100">
               
-              {/* Sci-Fi Schematic SVG */}
-              <svg className="w-full h-full text-neutral-400 group-hover:text-neon-cyan transition-colors duration-500" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Concentric rotating-like orbits */}
-                <motion.circle 
-                  cx="100" cy="100" r="80" 
-                  stroke="rgba(255,255,255,0.03)" strokeWidth="1" 
-                />
-                <motion.circle 
-                  cx="100" cy="100" r="65" 
-                  stroke="currentColor" strokeWidth="1" strokeDasharray="5 15"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-                />
-                <motion.circle 
-                  cx="100" cy="100" r="50" 
-                  stroke="rgba(0, 242, 254, 0.2)" strokeWidth="1.5" strokeDasharray="30 40"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-                />
+              {/* Clean Schematic Diagram */}
+              <svg className="w-full h-full text-slate-400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Structural Grid lines */}
+                <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(0,0,0,0.02)" strokeWidth="1" />
+                <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(0,0,0,0.02)" strokeWidth="1" />
                 
-                {/* Constellation Nodes */}
-                <circle cx="100" cy="100" r="6" fill="#00f2fe" className="shadow-lg shadow-neon-cyan" />
+                {/* Core Module Box */}
+                <rect x="75" y="75" width="50" height="50" rx="6" stroke="rgba(0,0,0,0.1)" strokeWidth="1" fill="rgba(0,0,0,0.005)" />
+                <text x="100" y="104" fill="rgba(0,0,0,0.45)" fontSize="8" fontFamily="monospace" textAnchor="middle">CORE.V1</text>
                 
-                <line x1="100" y1="100" x2="60" y2="60" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                <circle cx="60" cy="60" r="4" fill="#0066ff" />
-                
-                <line x1="100" y1="100" x2="140" y2="70" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                <circle cx="140" cy="70" r="4" fill="#9d4edd" />
+                {/* Connected peripheral nodes */}
+                {/* AI Node */}
+                <rect x="25" y="40" width="30" height="24" rx="4" stroke="rgba(0,0,0,0.08)" strokeWidth="1" fill="rgba(0,0,0,0.003)" />
+                <text x="40" y="55" fill="rgba(0,0,0,0.35)" fontSize="6" fontFamily="monospace" textAnchor="middle">AI_ENG</text>
+                <path d="M55,52 L75,85" stroke="rgba(0,0,0,0.08)" strokeWidth="1" strokeDasharray="3 3" />
 
-                <line x1="100" y1="100" x2="80" y2="150" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                <circle cx="80" cy="150" r="4" fill="#fff" />
-                
-                {/* Flowing data lines */}
-                <motion.path 
-                  d="M60,60 L100,100 L140,70 L80,150 Z" 
-                  stroke="url(#svgGrad)" strokeWidth="1.5" strokeDasharray="10 150"
-                  animate={{ strokeDashoffset: [-160, 160] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                />
+                {/* IoT Node */}
+                <rect x="145" y="40" width="30" height="24" rx="4" stroke="rgba(0,0,0,0.08)" strokeWidth="1" fill="rgba(0,0,0,0.003)" />
+                <text x="160" y="55" fill="rgba(0,0,0,0.35)" fontSize="6" fontFamily="monospace" textAnchor="middle">IoT_SYS</text>
+                <path d="M145,52 L125,85" stroke="rgba(0,0,0,0.08)" strokeWidth="1" strokeDasharray="3 3" />
 
-                <defs>
-                  <linearGradient id="svgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f2fe" />
-                    <stop offset="50%" stopColor="#0066ff" />
-                    <stop offset="100%" stopColor="#9d4edd" />
-                  </linearGradient>
-                </defs>
+                {/* Mobility Node */}
+                <rect x="80" y="145" width="40" height="24" rx="4" stroke="rgba(0,0,0,0.08)" strokeWidth="1" fill="rgba(0,0,0,0.003)" />
+                <text x="100" y="160" fill="rgba(0,0,0,0.35)" fontSize="6" fontFamily="monospace" textAnchor="middle">MOBILITY</text>
+                <path d="M100,145 L100,125" stroke="rgba(0,0,0,0.08)" strokeWidth="1" strokeDasharray="3 3" />
               </svg>
 
-              {/* Floating micro indicators overlay */}
-              <div className="absolute top-6 left-6 font-space text-[10px] text-neutral-500 uppercase tracking-widest">
-                AI.01 // Core Eng
+              {/* Layout labels */}
+              <div className="absolute top-4 left-6 font-space text-[10px] text-slate-400 uppercase tracking-widest">
+                SYSTEM SCHEMATIC
               </div>
-              <div className="absolute bottom-6 right-6 font-space text-[10px] text-neutral-500 uppercase tracking-widest flex items-center gap-1">
-                <BatteryCharging className="w-3.5 h-3.5 text-neon-cyan animate-pulse" />
-                EV Mobility
+              <div className="absolute bottom-4 right-6 font-space text-[10px] text-slate-400 uppercase tracking-widest">
+                V0.1.6 // DEV
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Bio Copy & Interactive Stats Grid */}
-          <div className="lg:col-span-7 flex flex-col gap-10 order-1 lg:order-2">
+          {/* Right Column: Bio & Stats Grid */}
+          <div className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
             <motion.div
-              className="flex flex-col gap-6"
-              initial={{ opacity: 0, y: 20 }}
+              className="flex flex-col gap-4"
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="text-xl sm:text-2xl font-space font-medium text-soft-white leading-snug">
+              <h3 className="text-xl sm:text-2xl font-space font-medium text-slate-800 leading-snug">
                 Pioneering the intersection of artificial intelligence, future mobility, and sustainable software solutions.
               </h3>
-              <p className="text-neutral-400 font-sans text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 font-sans text-sm sm:text-base leading-relaxed">
                 Passionate Computer Science Engineering student committed to transforming innovative ideas into impactful technological solutions. Experienced in AI-driven applications, software development, research publications, patents, and intelligent systems. Interested in AI, Sustainability, Electric Vehicles, IoT, and Research.
               </p>
             </motion.div>
 
-            {/* Interactive Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-3">
               {stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
-                  className="p-5 rounded-2xl border border-white/5 bg-white/[0.01] glass-panel flex flex-col gap-3 interactive-card group"
-                  initial={{ opacity: 0, y: 25 }}
+                  className="p-4 rounded-xl border border-slate-200 bg-white glass-panel flex flex-col gap-1.5 shadow-sm shadow-slate-100"
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className={`text-3xl sm:text-4xl font-extrabold font-space tracking-tight text-transparent bg-clip-text bg-gradient-to-r ${stat.color}`}>
+                    <span className="text-3xl sm:text-4xl font-extrabold font-space tracking-tight text-slate-900">
                       {stat.value}
                     </span>
-                    <stat.icon className="w-5 h-5 text-neutral-500 group-hover:text-neon-cyan transition-colors" />
+                    <stat.icon className="w-5 h-5 text-slate-400" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-neutral-400 font-space uppercase tracking-wider">
+                  <span className="text-xs sm:text-sm font-medium text-slate-500 font-space uppercase tracking-wider">
                     {stat.label}
                   </span>
                 </motion.div>
