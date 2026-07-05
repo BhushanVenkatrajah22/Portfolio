@@ -16,9 +16,9 @@ const socials = [
 
 export default function Hero() {
   const taglines = [
-    "Creating Innovative AI Applications & Scalable Software Solutions",
-    "Turning Ideas into Intelligent Software & AI-Powered Solutions",
-    "Building myself as an AI Engineer & Software Developer"
+    "Intelligent AI Applications",
+    "Scalable Software Solutions",
+    "Impact Through Code & Innovation"
   ];
 
   const [currentText, setCurrentText] = useState('');
@@ -109,7 +109,8 @@ export default function Hero() {
           </motion.h1>
 
           {/* Role Statement with Typewriter Animation (Prevents layout shift with min-height) */}
-          <div className="text-lg sm:text-2xl md:text-3xl font-space font-semibold mb-4 tracking-tight min-h-[3.5rem] sm:min-h-[2.5rem] md:min-h-[2.25rem] flex items-center justify-center lg:justify-start">
+          <div className="text-lg sm:text-2xl md:text-3xl font-space font-semibold mb-4 tracking-tight min-h-[2.5rem] sm:min-h-[2.25rem] md:min-h-[2rem] flex items-center justify-center lg:justify-start">
+            <span className="text-slate-900 dark:text-slate-100 mr-2 sm:mr-3">Building</span>
             <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400 bg-clip-text text-transparent">
               {currentText}
             </span>
