@@ -88,7 +88,7 @@ export default function Resume() {
                   <div className="flex flex-col gap-2.5">
                     <div>
                       <p className="font-semibold text-slate-800">SNS College of Engineering</p>
-                      <p className="text-[11px] text-slate-400 font-space">B.E. Computer Science • CGPA 8.22 • 2022 - 2026</p>
+                      <p className="text-[11px] text-slate-400 font-space">B.E. Computer Science • CGPA 8.22 • 2024 - 2028</p>
                     </div>
                     <div>
                       <p className="font-semibold text-slate-800">CMS Vidya Mandir</p>
@@ -105,7 +105,16 @@ export default function Resume() {
                     Research & Patents
                   </h4>
                   <ul className="flex flex-col gap-2 list-disc pl-4 text-slate-600 font-sans">
-                    <li>Titanium Dental Implants drug coating research.</li>
+                    <li>
+                      <a 
+                        href="https://www.researchgate.net/publication/386324562_SYNERGISTIC_DRUGS_COATED_TITANIUM_DENTAL_IMPLANTS_AGAINST_BACTERIAL_PATHOGENS" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:underline text-indigo-600 dark:text-indigo-400 font-medium"
+                      >
+                        Titanium Dental Implants drug coating research
+                      </a>.
+                    </li>
                     <li>Pleurotus mycelium-based bio-leather mycofabrication.</li>
                     <li>IoT Smart Water Bottle for elderly patient monitoring (Patent).</li>
                   </ul>

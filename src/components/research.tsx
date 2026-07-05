@@ -10,6 +10,7 @@ const researchItems = [
     publisher: 'International Scientific Journal',
     summary: 'Investigates nanotechnology-driven drug coating applications on titanium dental implants. Optimizes dual-drug delivery mechanisms to synergistically eradicate localized bacterial pathogens and improve implant integration.',
     tags: ['Biomaterials', 'Nanotechnology', 'Pathology Control'],
+    url: 'https://www.researchgate.net/publication/386324562_SYNERGISTIC_DRUGS_COATED_TITANIUM_DENTAL_IMPLANTS_AGAINST_BACTERIAL_PATHOGENS',
   },
   {
     type: 'Journal Publication',
@@ -74,8 +75,19 @@ export default function Research() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold font-space text-slate-900 hover:text-slate-700 transition-colors duration-200 tracking-tight leading-snug">
-                  {item.title}
+                <h3 className="text-xl sm:text-2xl font-bold font-space text-slate-900 transition-colors duration-200 tracking-tight leading-snug">
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
                 </h3>
 
                 {/* Summary */}
@@ -98,12 +110,25 @@ export default function Research() {
 
               {/* Right Column: Action link */}
               <div className="flex items-center justify-end w-full md:w-auto mt-4 md:mt-0">
-                <button
-                  className="p-3 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-400 hover:text-slate-700 transition-all duration-200 flex items-center justify-center shadow-sm"
-                  aria-label="View publisher resource"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                {item.url ? (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-400 hover:text-slate-700 transition-all duration-200 flex items-center justify-center shadow-sm dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-200 cursor-pointer"
+                    aria-label={`View publisher resource for ${item.title}`}
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
+                ) : (
+                  <button
+                    className="p-3 rounded-full bg-slate-50 border border-slate-200 text-slate-300 transition-all duration-200 flex items-center justify-center shadow-sm cursor-not-allowed opacity-40 dark:bg-slate-900/40 dark:border-slate-800/40 dark:text-slate-700"
+                    aria-label="No resource link available"
+                    disabled
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
