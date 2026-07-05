@@ -110,11 +110,11 @@ export default function Hero() {
 
           {/* Role Statement with Typewriter Animation (Single line only, prevents wrapping and shrinking) */}
           <div className="text-base sm:text-2xl md:text-3xl font-space font-semibold mb-4 tracking-tight whitespace-nowrap overflow-hidden flex items-center justify-center lg:justify-start w-full min-h-[2.5rem] sm:min-h-[2.25rem] md:min-h-[2rem]">
-            <span className="text-slate-900 dark:text-slate-100 mr-2 sm:mr-3 flex-shrink-0">Building</span>
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400 bg-clip-text text-transparent flex-shrink-0">
+            <span className="text-slate-900 dark:text-slate-900 mr-2 sm:mr-3 flex-shrink-0">Building</span>
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-600 dark:via-indigo-500 dark:to-purple-600 bg-clip-text text-transparent flex-shrink-0">
               {currentText}
             </span>
-            <span className="typewriter-cursor text-blue-600 dark:text-cyan-400 ml-0.5 flex-shrink-0">&nbsp;</span>
+            <span className="typewriter-cursor text-blue-600 dark:text-blue-600 ml-0.5 flex-shrink-0">&nbsp;</span>
           </div>
 
           {/* Short Statement (Darkened for better contrast) */}
