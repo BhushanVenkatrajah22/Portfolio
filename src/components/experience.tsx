@@ -5,6 +5,13 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const experiences = [
   {
+    role: 'Full Stack Intern',
+    company: 'Ether Services',
+    duration: '1 Month',
+    description: 'Designed and developed modular full-stack capabilities, integrating client-side interfaces with backend microservices and databases.',
+    location: 'Remote',
+  },
+  {
     role: 'Software Intern',
     company: 'SNS Square',
     duration: '3 Months',

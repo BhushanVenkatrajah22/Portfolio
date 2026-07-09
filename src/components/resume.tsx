@@ -124,6 +124,7 @@ export default function Resume() {
                     Experience Highlights
                   </h4>
                   <ul className="flex flex-col gap-2 list-disc pl-4 text-slate-600 font-sans">
+                    <li>Created full-stack capabilities and database modules at Ether Services.</li>
                     <li>Developed responsive logic modules during SNS Square Internship.</li>
                     <li>Mentored academic candidates on Python programming algorithms.</li>
                     <li>Built interactive frontend portals at InternPe.</li>
